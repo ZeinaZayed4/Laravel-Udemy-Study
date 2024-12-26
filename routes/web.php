@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\SingleController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\Users\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/zeina', [TestController::class, 'zeina']);
@@ -33,3 +36,7 @@ Route::get('/print-name/{name?}', [TestController::class, 'printName'])->name('p
 //    Route::get('/zeina', 'zeina');
 //    Route::get('/print-name/{name?}', 'printName')->name('print-my-name-route');
 //});
+
+//Route::get('/hello', [UserController::class, 'index']);
+//Route::get('/hello', SingleController::class);
+Route::resource('posts', PostController::class)->only(['index', 'show']);

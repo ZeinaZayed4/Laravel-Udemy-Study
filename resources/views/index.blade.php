@@ -39,7 +39,8 @@
                 </div>
 
                 <h3>Hello From Index Page</h3>
-                <a href="{{ route('print-my-name-route', ['name' => 'Zeina']) }}" style="color: red;">Print My Name</a>
+{{--                <a href="{{ route('print-my-name-route', ['name' => 'Zeina']) }}" style="color: red;">Print My Name</a>--}}
+                <a href="{{ route('posts.index') }}" style="color: red;" target="_blank">Go To Index Function</a>
 
                 <div class="mt-16">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
