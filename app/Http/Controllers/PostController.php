@@ -9,9 +9,23 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        dd('Hello from index function inside post controller');
+//        dd($request->all());
+//        $age = $request->input('age', 20);
+//        $age = $request->query('age', 20);
+//        $data = $request->only(['name', 'age']);
+//        dd($data);
+//        dd('Hello from index function inside post controller');
+//        return response()->json([
+//            'name' => 'Zeina Zayed',
+//        ]);
+//        return view('welcome');
+//        abort(404);
+//        return redirect()->route('print-my-name-route');
+//        return redirect('https://google.com');
+//        return redirect()->away('https://google.com');
+        return redirect()->action([UserController::class, 'index']);
     }
 
     /**
