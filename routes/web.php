@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/', function () {
-    $data = [1, 2, 3, 4];
+    $data = 'Zeina';
    return view('posts.create.index.zeina', compact('data'));
 });
 
