@@ -7,8 +7,13 @@ use App\Http\Controllers\UserController;
 use App\Http\Middleware\CheckIfNameIsZeina;
 use Illuminate\Support\Facades\Route;
 
+//Route::get('/', function () {
+//    return view('zeina');
+//});
+
 Route::get('/', function () {
-   return view('welcome');
+    $data = [1, 2, 3, 4];
+   return view('posts.create.index.zeina', compact('data'));
 });
 
 //Route::get('/', function () {
@@ -23,7 +28,7 @@ Route::view('/zeina', 'index');
 Route::redirect('/here', 'https://google.com');
 */
 
-Route::get('/print-name/{name?}', [TestController::class, 'printName'])->name('print-my-name-route');
+//Route::get('/print-name/{name?}', [TestController::class, 'printName'])->name('print-my-name-route');
 
 // Routes groups
 //Route::controller(TestController::class)->prefix('test')->name('test.')
@@ -32,9 +37,9 @@ Route::get('/print-name/{name?}', [TestController::class, 'printName'])->name('p
 //        Route::get('/print-name/{name?}', 'printName')->name('print-my-name-route');
 //});
 
-Route::get('/hello', [UserController::class, 'index']);
+//Route::get('/hello', [UserController::class, 'index']);
 
-Route::resource('posts', PostController::class);
+//Route::resource('posts', PostController::class);
 
 // Middleware
 //Route::get('/hello', SingleController::class)
