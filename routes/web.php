@@ -3,6 +3,7 @@
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SingleController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\CheckIfNameIsZeina;
 use Illuminate\Support\Facades\Route;
@@ -11,10 +12,10 @@ use Illuminate\Support\Facades\Route;
 //    return view('zeina');
 //});
 
-Route::get('/', function () {
-    $data = 'Zeina';
-   return view('posts.create.index.zeina', compact('data'));
-});
+//Route::get('/', function () {
+//    $data = 'Zeina';
+//   return view('posts.create.index.zeina', compact('data'));
+//});
 
 //Route::get('/', function () {
 //    return view('index');
@@ -46,3 +47,10 @@ Route::redirect('/here', 'https://google.com');
 //    ->middleware('check_zeina');
 
 //Route::get('/hello', SingleController::class);
+
+// Theme Routes
+Route::controller(ThemeController::class)->name('theme.')->group(function () {
+    Route::get('/about', 'about')->name('about');
+    Route::get('/services', 'services')->name('services');
+    Route::get('/contact', 'contact')->name('contact');
+});
