@@ -6,14 +6,9 @@
 @section('content')
     <div class="untree_co-section">
         <div class="container">
-
             <div class="block">
                 <div class="row justify-content-center">
-
-
                     <div class="col-md-8 col-lg-8 pb-4">
-
-
                         <div class="row mb-5">
                             <div class="col-lg-4">
                                 <div  class="service no-shadow align-items-center link horizontal d-flex active" data-aos="fade-left" data-aos-delay="0">
@@ -27,7 +22,6 @@
                                     </div> <!-- /.service-contents-->
                                 </div> <!-- /.service -->
                             </div>
-
                             <div class="col-lg-4">
                                 <div  class="service no-shadow align-items-center link horizontal d-flex active" data-aos="fade-left" data-aos-delay="0">
                                     <div class="service-icon color-1 mb-4">
@@ -40,7 +34,6 @@
                                     </div> <!-- /.service-contents-->
                                 </div> <!-- /.service -->
                             </div>
-
                             <div class="col-lg-4">
                                 <div  class="service no-shadow align-items-center link horizontal d-flex active" data-aos="fade-left" data-aos-delay="0">
                                     <div class="service-icon color-1 mb-4">
@@ -54,44 +47,68 @@
                                 </div> <!-- /.service -->
                             </div>
                         </div>
-
-                        <form>
+                        <form action="{{ route('theme.contact.store') }}" method="post" >
+                            @csrf
+                            {{-- @if($errors->any())
+                                    <div style="border: 1px solid red">
+                                        <ul>
+                                            @foreach($errors->all() as $error)
+                                                <li style="color: red">{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                            --}}
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label class="text-black" for="fname">First name</label>
-                                        <input type="text" class="form-control" id="fname">
+                                        <input type="text" name="first_name" class="form-control" id="fname"
+                                               value="{{ old('first_name') }}">
+                                        @error('first_name')
+                                            <div>
+                                                <span style="color: red;">{{ $message }}</span>
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label class="text-black" for="lname">Last name</label>
-                                        <input type="text" class="form-control" id="lname">
+                                        <input type="text" name="last_name" class="form-control" id="lname"
+                                               value="{{ old('last_name') }}">
+                                        @error('last_name')
+                                        <div>
+                                            <span style="color: red;">{{ $message }}</span>
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="text-black" for="email">Email address</label>
-                                <input type="email" class="form-control" id="email">
+                                <input type="email" name="email" class="form-control" id="email"
+                                       value="{{ old('email') }}">
+                                @error('email')
+                                <div>
+                                    <span style="color: red;">{{ $message }}</span>
+                                </div>
+                                @enderror
                             </div>
-
                             <div class="form-group mb-5">
                                 <label class="text-black" for="message">Message</label>
-                                <textarea name="" class="form-control" id="message" cols="30" rows="5"></textarea>
+                                <textarea name="message" class="form-control" id="message" cols="30" rows="5">{{ old('message') }}</textarea>
+                                @error('message')
+                                <div>
+                                    <span style="color: red;">{{ $message }}</span>
+                                </div>
+                                @enderror
                             </div>
-
                             <button type="submit" class="btn btn-primary-hover-outline">Send Message</button>
                         </form>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
-
-    </div>
     </div>
 @endsection
