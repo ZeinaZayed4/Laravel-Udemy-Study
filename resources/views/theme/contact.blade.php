@@ -49,6 +49,11 @@
                         </div>
                         <form action="{{ route('theme.contact.store') }}" method="post" >
                             @csrf
+                            @if(session('Success'))
+                                <div style="border: 1px solid forestgreen; color: forestgreen; padding: 5px">
+                                    {{ session('Success') }}
+                                </div>
+                            @endif
                             {{-- @if($errors->any())
                                     <div style="border: 1px solid red">
                                         <ul>
