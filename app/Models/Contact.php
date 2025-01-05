@@ -14,6 +14,12 @@ class Contact extends Model
         'last_name',
         'email',
         'message',
-        'status'
+        'status',
+        'category_id'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Contact::class);
+    }
 }

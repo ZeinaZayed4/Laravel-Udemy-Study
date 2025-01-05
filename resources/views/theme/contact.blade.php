@@ -90,15 +90,33 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="text-black" for="email">Email address</label>
-                                <input type="email" name="email" class="form-control" id="email"
-                                       value="{{ old('email') }}">
-                                @error('email')
-                                <div>
-                                    <span style="color: red;">{{ $message }}</span>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="text-black" for="email">Email address</label>
+                                    <input type="email" name="email" class="form-control" id="email"
+                                           value="{{ old('email') }}">
+                                    @error('email')
+                                    <div>
+                                        <span style="color: red;">{{ $message }}</span>
+                                    </div>
+                                    @enderror
                                 </div>
-                                @enderror
+                                <div class="col-6">
+                                    <label class="text-black" for="category">Category</label>
+                                    <select name="category_id" class="form-select" id="category">
+                                        <option value="">Select Category</option>
+                                        @if(count($categories) > 0)
+                                            @foreach($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                    @error('category_id')
+                                    <div>
+                                        <span style="color: red;">{{ $message }}</span>
+                                    </div>
+                                    @enderror
+                                </div>
                             </div>
                             <div class="form-group mb-5">
                                 <label class="text-black" for="message">Message</label>
