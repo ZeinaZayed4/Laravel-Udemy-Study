@@ -70,4 +70,10 @@ class ThemeController extends Controller
 
         return back()->with('Success', 'Your data has been successfully added!');
     }
+
+    public function display()
+    {
+        $data = Contact::paginate(5);
+        return view('theme.display-contacts', compact('data'));
+    }
 }
